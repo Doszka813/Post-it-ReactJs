@@ -1,8 +1,9 @@
 import React from "react";
 import Note from "./Note";
 import NoteCreator from "./NoteCreator";
+import BoardSidebar from "./BoardSidebar";
 
-import { Button, Icon, Card, Modal } from "semantic-ui-react";
+import { Button, Card, Modal } from "semantic-ui-react";
 
 import { connect } from "react-redux";
 
@@ -21,6 +22,12 @@ const Board = props => {
     props.updateBoard(newBoard);
   };
 
+  const deleteAllNotes = () => {
+    const newBoard = props.board;
+    newBoard.notes = [];
+    props.updateBoard(newBoard);
+  };
+
   const onDeleteBoard = () => {
     const id = props.id;
     props.deleteBoard(id);
@@ -28,13 +35,14 @@ const Board = props => {
 
   return (
     <div className="Board">
-      <Button onClick={onDeleteBoard} circular>
-        <Icon name="trash" />
-        Remove board
-      </Button>
+      <BoardSidebar
+        onDeleteBoard={onDeleteBoard}
+        onAddNote={addNote}
+        deleteAllNotes={deleteAllNotes}
+      />
       <Modal
         trigger={<Button circular icon="plus circle" color="blue" />}
-        size="small"
+        size="large"
         centered={false}
       >
         <NoteCreator addNote={addNote} />

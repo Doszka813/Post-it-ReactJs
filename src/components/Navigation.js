@@ -5,7 +5,7 @@ import { Icon, Menu } from "semantic-ui-react";
 
 const Navigation = () => {
   return (
-    <Menu>
+    <Menu inverted>
       <Menu.Item>
         <Link to="/">
           <Icon name="home" />

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   background: #fc466b; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #fc466b, #3f5efb); /* Chrome 10-25, Safari 5.1-6 */

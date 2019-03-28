@@ -2,12 +2,12 @@ import React from "react";
 import Board from "./Board";
 import BoardCreator from "./BoardCreator";
 
-import { Button, Icon, Modal, Tab } from "semantic-ui-react";
+import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
 
 import { connect } from "react-redux";
 import "../styles/Wall.css";
 
-const Wall = (props) => {
+const Wall = props => {
   const addBoard = board => {
     props.addBoard(board);
   };
@@ -19,7 +19,12 @@ const Wall = (props) => {
   const panes =
     props.boards &&
     props.boards.map(board => ({
-      menuItem: board.name,
+      menuItem: (
+        <Menu.Item key={board.id}>
+          {board.name}
+          <Label color="blue">{board.notes.length}</Label>
+        </Menu.Item>
+      ),
       render: () => (
         <Tab.Pane>
           <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
