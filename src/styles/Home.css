@@ -1,0 +1,11 @@
+.Home {
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.HomeInfo {
+  padding: 2rem;
+    text-align: center;
+    color: #fff;
+}

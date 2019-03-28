@@ -1,0 +1,12 @@
+.Board{
+    margin:2rem auto;
+    width: 80%;
+    height: auto;
+    padding: 1rem;
+
+    
+}
+
+.NotesList {
+    margin-top: 2rem;
+}
