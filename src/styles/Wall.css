@@ -1,8 +1,12 @@
 .Wall {
   background-color: #ffffff;
-  height: 90vh;
   width: 80%;
   margin: 0 auto;
   padding: 1rem;
   border-radius: 1rem;
+}
+.WallNav {
+  padding: 2rem;
+}
+.TabContainer{
 }

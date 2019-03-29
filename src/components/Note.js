@@ -15,7 +15,7 @@ const Note = props => {
 
         <Card.Description>{props.text}</Card.Description>
       </Card.Content>
-      <Button animated basic color="red" onClick={deleteNote}>
+      <Button animated basic onClick={deleteNote}>
         <Button.Content visible>
           <Icon name="trash" />
         </Button.Content>

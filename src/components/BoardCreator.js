@@ -41,21 +41,9 @@ class BoardCreator extends Component {
           />
         </Modal.Content>
         <br />
-        {/* <Modal.Actions>
-          <Button basic color="red" inverted>
-            <Icon name="remove" /> Abort
-          </Button>
-        </Modal.Actions> */}
       </div>
     );
   }
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     addNote: (dictId, note) => {
-//       dispatch({ type: "ADD_NOTE", note });
-//     }
-//   };
-// };
 export default BoardCreator;

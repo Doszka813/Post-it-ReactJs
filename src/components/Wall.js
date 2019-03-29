@@ -9,6 +9,7 @@ import "../styles/Wall.css";
 
 const Wall = props => {
   const addBoard = board => {
+    console.log("cl");
     props.addBoard(board);
   };
 
@@ -22,7 +23,9 @@ const Wall = props => {
       menuItem: (
         <Menu.Item key={board.id}>
           {board.name}
-          <Label color="blue">{board.notes.length}</Label>
+          <Label circular color="blue">
+            {board.notes.length}
+          </Label>
         </Menu.Item>
       ),
       render: () => (
@@ -34,23 +37,28 @@ const Wall = props => {
 
   return (
     <div className="Wall">
-      <Modal
-        trigger={
-          <Button primary>
-            <Icon name="add" />
-            Add Board
-          </Button>
-        }
-        size="small"
-        centered={false}
-      >
-        <BoardCreator addBoard={addBoard} />
-      </Modal>
-      {props.boards.length < 1 ? (
-        <h2>No boards to show. Please create board to continue fun!</h2>
-      ) : (
-        <Tab panes={panes} />
-      )}
+      <div className="WallNav">
+        <Modal
+          trigger={
+            <Button primary>
+              <Icon name="add" />
+              Add Board
+            </Button>
+          }
+          size="tiny"
+          centered={false}
+          dimmer="blurring"
+        >
+          <BoardCreator addBoard={addBoard} />
+        </Modal>
+      </div>
+      <div className="TabContainer">
+        {props.boards.length < 1 ? (
+          <h2>No boards to show. Please create board to continue fun!</h2>
+        ) : (
+          <Tab panes={panes} />
+        )}
+      </div>
     </div>
   );
 };

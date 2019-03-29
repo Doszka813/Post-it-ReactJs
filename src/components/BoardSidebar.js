@@ -14,7 +14,6 @@ export default class SidebarExampleSidebar extends Component {
     return (
       <div>
         <Button
-          color="blue"
           circular
           floated="left"
           disabled={visible}
@@ -31,7 +30,7 @@ export default class SidebarExampleSidebar extends Component {
           onHide={this.handleSidebarHide}
           vertical
           visible={visible}
-        //   width="thin"
+          //   width="thin"
         >
           <Menu.Item as="a">
             <Button primary onClick={this.props.onDeleteBoard}>

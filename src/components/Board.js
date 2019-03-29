@@ -37,13 +37,13 @@ const Board = props => {
     <div className="Board">
       <BoardSidebar
         onDeleteBoard={onDeleteBoard}
-        onAddNote={addNote}
         deleteAllNotes={deleteAllNotes}
       />
       <Modal
         trigger={<Button circular icon="plus circle" color="blue" />}
-        size="large"
+        size="tiny"
         centered={false}
+        dimmer="blurring"
       >
         <NoteCreator addNote={addNote} />
       </Modal>
