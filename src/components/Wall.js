@@ -56,7 +56,7 @@ const Wall = props => {
         {props.boards.length < 1 ? (
           <h2>No boards to show. Please create board to continue fun!</h2>
         ) : (
-          <Tab panes={panes} />
+          <Tab menu={{ secondary: true, pointing: true, className: "Wrapped" }} panes={panes} />
         )}
       </div>
     </div>

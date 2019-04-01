@@ -8,5 +8,8 @@
 .WallNav {
   padding: 2rem;
 }
-.TabContainer{
+.Wrapped{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

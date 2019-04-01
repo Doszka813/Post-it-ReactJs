@@ -18,6 +18,12 @@ const Navigation = () => {
           Wall
         </Link>
       </Menu.Item>
+      <Menu.Item>
+        <Link to="signin">
+          <Icon name="user" />
+          Sign In
+        </Link>
+      </Menu.Item>
     </Menu>
   );
 };
