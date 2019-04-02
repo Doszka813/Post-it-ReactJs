@@ -27,7 +27,6 @@ class BoardCreator extends Component {
     e.preventDefault();
     const board = {...this.state.board};
     this.props.addBoard(board);
-    // this.props.history.push('/wall');
   };
 
   render() {

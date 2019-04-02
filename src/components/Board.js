@@ -2,7 +2,7 @@ import React from "react";
 import Note from "./Note";
 import NoteCreator from "./NoteCreator";
 import BoardSidebar from "./BoardSidebar";
-
+import { updateBoard } from '../actions/board-actions';
 import { Button, Card, Modal } from "semantic-ui-react";
 
 import { connect } from "react-redux";
@@ -77,7 +77,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     updateBoard: board => {
-      dispatch({ type: "UPDATE_BOARD", board });
+      dispatch(updateBoard(board));
     }
   };
 };

@@ -5,7 +5,7 @@ const BoardForm = (props) => (
   <Form>
     <Form.Field>
       <label>Board name</label>
-      <Input focused onChange={props.changeBoardName} placeholder='Title' />
+      <Input focus onChange={props.changeBoardName} placeholder='Title' />
     </Form.Field>
     <Button onClick={props.onAddBoard} type='submit' color="green" inverted>Submit</Button>
   </Form>

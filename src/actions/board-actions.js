@@ -1,12 +1,20 @@
-// // export const UPDATE_NOTEBOOK = 'notebooks:updateNotebook'
+export const addNewBoard = board => {
+  return (dispatch, getState) => {
+    //async call to db
+    dispatch({ type: "ADD_BOARD", board });
+  };
+};
 
-// const addNewBoard = (newBoard) => {
-//     return {
-//         type: 'ADD_BOARD',
-//         payload: {
-//           notebook: newBoard  
-//         }
-//     }
-// };
+export const deleteBoard = id => {
+  return (dispatch, getState) => {
+    //async call to db
+    dispatch({ type: "DELETE_BOARD", id });
+  };
+};
 
-// export default addNewBoard;
+export const updateBoard = board => {
+  return (dispatch, getState) => {
+    //async call to db
+    dispatch({ type: "UPDATE_BOARD", board });
+  };
+};

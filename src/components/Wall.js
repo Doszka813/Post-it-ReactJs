@@ -2,6 +2,8 @@ import React from "react";
 import Board from "./Board";
 import BoardCreator from "./BoardCreator";
 
+import { addNewBoard, deleteBoard } from '../actions/board-actions';
+
 import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
 
 import { connect } from "react-redux";
@@ -9,7 +11,6 @@ import "../styles/Wall.css";
 
 const Wall = props => {
   const addBoard = board => {
-    console.log("cl");
     props.addBoard(board);
   };
 
@@ -66,10 +67,10 @@ const Wall = props => {
 const mapDispatchToProps = dispatch => {
   return {
     addBoard: board => {
-      dispatch({ type: "ADD_BOARD", board });
+      dispatch(addNewBoard(board));
     },
     deleteBoard: id => {
-      dispatch({ type: "DELETE_BOARD", id });
+      dispatch(deleteBoard(id));
     }
   };
 };

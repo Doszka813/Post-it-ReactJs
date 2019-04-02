@@ -6,11 +6,11 @@ const NoteForm = props => {
     <Form>
       <Form.Field>
         <label>Title</label>
-        <Input focused onChange={props.changeNoteTitle} placeholder="Title" />
+        <Input focus onChange={props.changeNoteTitle} placeholder="Title" />
       </Form.Field>
       <Form.Field>
         <TextArea
-          focused
+          focus
           onChange={props.changeNoteTxt}
           placeholder="What is worth remembering?"
         />
