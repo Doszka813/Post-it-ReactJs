@@ -90,6 +90,7 @@ const mapStateToProps = state => {
     auth: state.firebase.auth
   };
 };
+
 export default compose(
   connect(
     mapStateToProps,

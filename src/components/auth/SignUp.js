@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { signUp } from "../../actions/auth-actions";
 
 import { Form, Button, Container } from "semantic-ui-react";
+import "../../styles/Error.css";
 
 class SignUp extends Component {
   constructor() {
@@ -29,11 +32,14 @@ class SignUp extends Component {
 
   signIn = e => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.history.push('/');
+    this.props.signUp(this.state);
   };
 
   render() {
+    const { auth, authError } = this.props;
+
+    if (auth.uid) return <Redirect to="/" />;
+
     if (this.state.signUpMode) {
       return (
         <Container className="Sign">
@@ -62,6 +68,9 @@ class SignUp extends Component {
             <Button size="big" color="green" inverted>
               Sign Up
             </Button>
+            <div className="Error">
+              {authError ? <p> {authError}</p> : null}
+            </div>
           </Form>
         </Container>
       );
@@ -78,4 +87,21 @@ class SignUp extends Component {
   }
 }
 
-export default withRouter(SignUp);
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: newUser => dispatch(signUp(newUser))
+  };
+};
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    authError: state.auth.authError,
+    auth: state.firebase.auth
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);

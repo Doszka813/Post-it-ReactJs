@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom';
-
+import { Redirect } from 'react-router-dom';
 import { Form, Button, Container } from "semantic-ui-react";
 import { connect } from 'react-redux';
 import { signIn } from '../../actions/auth-actions';
@@ -23,11 +22,11 @@ class SignIn extends Component {
   signIn = e => {
     e.preventDefault();
     this.props.signIn(this.state);
-    this.props.history.push('/');
   };
 
   render() {
-    const { authError } = this.props;
+    const { authError, auth } = this.props;
+    if(auth.uid) return <Redirect to="/" />
 
     return (
       <Container className="SignIn">
@@ -45,7 +44,7 @@ class SignIn extends Component {
             Sign In
           </Button>
           <br/>
-          <div>
+          <div className="Error">
             {authError ? <p color="red"> {authError} </p> : null}
           </div>
         </Form>
@@ -56,6 +55,7 @@ class SignIn extends Component {
 const mapStateToProps = (state) => {
   return {
     authError: state.auth.authError,
+    auth: state.firebase.auth
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -63,4 +63,4 @@ const mapDispatchToProps = (dispatch) => {
     signIn: (creds) => dispatch(signIn(creds))
   }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
