@@ -1,5 +1,7 @@
 .Error {
-    margin: 0 auto;
-    text-align: center;
-    color: red;
+  margin: 0 auto;
+  text-align: center;
+  color: rgb(243, 51, 51);
+  font-weight: bold;
+  margin-top: 2rem;
 }

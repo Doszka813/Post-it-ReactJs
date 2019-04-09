@@ -1,10 +1,10 @@
 import React from "react";
 import Note from "../Note/Note";
-import NoteCreator from "../Note/NoteCreator";
 import BoardSidebar from "./BoardSidebar";
 import { updateBoard, updateBoardNotes } from "../../actions/board-actions";
 import { connect } from "react-redux";
-import { Button, Card, Modal } from "semantic-ui-react";
+import moment from 'moment';
+import { Card } from "semantic-ui-react";
 
 import "../../styles/Board.css";
 
@@ -38,15 +38,10 @@ const Board = props => {
       <BoardSidebar
         onDeleteBoard={onDeleteBoard}
         deleteAllNotes={deleteAllNotes}
+        addNote={addNote}
       />
-      <Modal
-        trigger={<Button circular icon="plus circle" color="blue" />}
-        size="tiny"
-        centered={false}
-        dimmer="blurring"
-      >
-        <NoteCreator addNote={addNote} />
-      </Modal>
+
+      <div>Created: {moment(props.board.createdAt.toDate()).calendar()} by {props.board.authorFirstName} {props.board.authorLastName}</div>
       <div className="NotesList">
         <Card.Group>
           {props.board &&

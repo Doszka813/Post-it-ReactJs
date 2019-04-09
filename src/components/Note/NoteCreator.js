@@ -10,7 +10,8 @@ class NoteCreator extends Component {
     super();
     this.state = {
       title: "",
-      text: ""
+      text: "",
+      createdAt: new Date()
     };
   }
 

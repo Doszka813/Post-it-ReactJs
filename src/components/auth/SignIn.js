@@ -30,7 +30,7 @@ class SignIn extends Component {
 
     return (
       <Container className="SignIn">
-        <Form onSubmit={this.signIn}>
+        <Form size='large' onSubmit={this.signIn}>
           <h2>Sign In</h2>
           <Form.Field>
             <label htmlFor="email">Email</label>
@@ -54,7 +54,7 @@ class SignIn extends Component {
 }
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError,
+    authError: state.auth.authLoginError,
     auth: state.firebase.auth
   }
 }

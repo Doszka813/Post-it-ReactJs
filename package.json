@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "firebase": "^5.9.2",
+    "moment": "^2.24.0",
     "react": "^16.8.4",
     "react-custom-scroll": "^4.0.1",
     "react-dom": "^16.8.4",

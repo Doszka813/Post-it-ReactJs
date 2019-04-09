@@ -43,7 +43,7 @@ class SignUp extends Component {
     if (this.state.signUpMode) {
       return (
         <Container className="Sign">
-          <Form onSubmit={this.signIn}>
+          <Form size='large' onSubmit={this.signIn}>
             <h2>Sign Up</h2>
             <Form.Field>
               <label htmlFor="firstName">First Name</label>
@@ -96,7 +96,7 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    authError: state.auth.authError,
+    authError: state.auth.authSignupError,
     auth: state.firebase.auth
   };
 };

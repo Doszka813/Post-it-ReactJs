@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Icon, Menu, Sidebar } from "semantic-ui-react";
+import { Button, Icon, Menu, Sidebar, Modal } from "semantic-ui-react";
+import NoteCreator from "../Note/NoteCreator";
 
 export default class SidebarExampleSidebar extends Component {
   state = { visible: false };
@@ -30,7 +31,6 @@ export default class SidebarExampleSidebar extends Component {
           onHide={this.handleSidebarHide}
           vertical
           visible={visible}
-          //   width="thin"
         >
           <Menu.Item as="a">
             <Button primary onClick={this.props.onDeleteBoard}>
@@ -43,6 +43,21 @@ export default class SidebarExampleSidebar extends Component {
               <Icon name="delete" />
               Remove notes
             </Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Modal
+              trigger={
+                <Button primary>
+                  <Icon name="plus circle" />
+                  Add Note{" "}
+                </Button>
+              }
+              size="tiny"
+              centered={false}
+              dimmer="blurring"
+            >
+              <NoteCreator addNote={this.props.addNote} />
+            </Modal>
           </Menu.Item>
         </Sidebar>
       </div>
