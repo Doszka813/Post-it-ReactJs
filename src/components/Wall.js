@@ -1,47 +1,52 @@
 import React from "react";
-import Board from "./Board";
-import BoardCreator from "./BoardCreator";
+import Board from "./Board/Board";
+import BoardCreator from "./Board/BoardCreator";
 
-import { addNewBoard, deleteBoard } from '../actions/board-actions';
+import { addNewBoard, deleteBoard } from "../actions/board-actions";
 
-import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
-
+import { compose } from "redux";
 import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
+import { Redirect } from 'react-router-dom';
+import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
 import "../styles/Wall.css";
 
-const Wall = props => {
+const Wall = (props) => {
+
+  const { boards, auth } = props;
+
+  const panes = boards && boards.map(board => ({
+    menuItem: (
+      <Menu.Item key={board.id}>
+        {board.name}
+        <Label circular color="blue">
+          {board.notes.length}
+        </Label>
+      </Menu.Item>
+    ),
+    render: () => (
+      <Tab.Pane>
+        <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
+      </Tab.Pane>
+    )
+  }));
+
   const addBoard = board => {
     props.addBoard(board);
   };
-
+  
   const deleteBoard = id => {
     props.deleteBoard(id);
   };
 
-  const panes =
-    props.boards &&
-    props.boards.map(board => ({
-      menuItem: (
-        <Menu.Item key={board.id}>
-          {board.name}
-          <Label circular color="blue">
-            {board.notes.length}
-          </Label>
-        </Menu.Item>
-      ),
-      render: () => (
-        <Tab.Pane>
-          <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
-        </Tab.Pane>
-      )
-    }));
+  if(!auth.uid) return <Redirect to='signin' />
 
   return (
     <div className="Wall">
       <div className="WallNav">
         <Modal
           trigger={
-            <Button primary>
+            <Button size="big" primary>
               <Icon name="add" />
               Add Board
             </Button>
@@ -54,10 +59,13 @@ const Wall = props => {
         </Modal>
       </div>
       <div className="TabContainer">
-        {props.boards.length < 1 ? (
+        {boards && boards.length < 1 ? (
           <h2>No boards to show. Please create board to continue fun!</h2>
         ) : (
-          <Tab menu={{ secondary: true, pointing: true, className: "Wrapped" }} panes={panes} />
+          <Tab
+            menu={{ secondary: true, pointing: true, className: "Wrapped" }}
+            panes={panes}
+          />
         )}
       </div>
     </div>
@@ -74,13 +82,18 @@ const mapDispatchToProps = dispatch => {
     }
   };
 };
+
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    boards: state.boards
+    boards: state.firestore.ordered.boards,
+    auth: state.firebase.auth
   };
 };
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+export default compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  firestoreConnect([{ collection: 'boards' }])
 )(Wall);

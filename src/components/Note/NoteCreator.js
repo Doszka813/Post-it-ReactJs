@@ -3,36 +3,29 @@ import React, { Component } from "react";
 import NoteForm from "./NoteForm";
 
 import { Header, Modal } from "semantic-ui-react";
-import "../styles/Creator.css";
+import "../../styles/Creator.css";
 
 class NoteCreator extends Component {
   constructor(props) {
     super();
     this.state = {
-      note: {
-        id: new Date().getTime(),
-        title: "",
-        text: ""
-      }
+      title: "",
+      text: ""
     };
   }
 
   changeNoteTitle = e => {
-    const note = this.state.note;
-    note.title = e.target.value;
-    this.setState({ note });
+    this.setState({ title: e.target.value });
   };
 
   changeNoteTxt = e => {
-    const note = this.state.note;
-    note.text = e.target.value;
-    this.setState({ note });
+    this.setState({ text: e.target.value });
   };
 
-  onAddNote = (e) => {
+  onAddNote = e => {
     e.preventDefault();
-    const note = {...this.state.note};
-    this.props.addNote(note);
+    // const note = { ...this.state };
+    this.props.addNote(this.state);
   };
 
   render() {
@@ -49,6 +42,6 @@ class NoteCreator extends Component {
       </div>
     );
   }
-};
+}
 
 export default NoteCreator;

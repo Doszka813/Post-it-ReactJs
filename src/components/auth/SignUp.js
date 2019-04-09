@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 import { Form, Button, Container } from "semantic-ui-react";
 
@@ -29,6 +30,7 @@ class SignUp extends Component {
   signIn = e => {
     e.preventDefault();
     console.log(this.state);
+    this.props.history.push('/');
   };
 
   render() {
@@ -76,4 +78,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

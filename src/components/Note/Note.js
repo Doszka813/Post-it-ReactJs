@@ -2,7 +2,7 @@ import React from "react";
 
 import { Card, Button, Icon, Divider } from "semantic-ui-react";
 
-import "../styles/Note.css";
+import "../../styles/Note.css";
 
 const Note = props => {
   const deleteNote = () => props.onDeleteNote(props.id);

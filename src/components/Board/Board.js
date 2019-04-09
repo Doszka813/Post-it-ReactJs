@@ -1,31 +1,31 @@
 import React from "react";
-import Note from "./Note";
-import NoteCreator from "./NoteCreator";
+import Note from "../Note/Note";
+import NoteCreator from "../Note/NoteCreator";
 import BoardSidebar from "./BoardSidebar";
-import { updateBoard } from '../actions/board-actions';
+import { updateBoard, updateBoardNotes } from "../../actions/board-actions";
+import { connect } from "react-redux";
 import { Button, Card, Modal } from "semantic-ui-react";
 
-import { connect } from "react-redux";
-
-import "../styles/Board.css";
+import "../../styles/Board.css";
 
 const Board = props => {
+  
   const addNote = note => {
-    const newBoard = props.board;
+    const newBoard = {...props.board};
     newBoard.notes = [...newBoard.notes, note];
-    props.updateBoard(newBoard);
+    props.updateBoardNotes(newBoard.notes, props.id);
   };
 
   const deleteNote = id => {
-    const newBoard = props.board;
-    newBoard.notes = newBoard.notes.filter(note => note.id !== id);
-    props.updateBoard(newBoard);
+    const notes = props.board.notes.slice();
+    notes.splice(id, 1);
+    props.updateBoardNotes(notes, props.id);
   };
 
   const deleteAllNotes = () => {
-    const newBoard = props.board;
-    newBoard.notes = [];
-    props.updateBoard(newBoard);
+    const notes = props.board.notes.slice();
+    notes.splice(0, notes.length);
+    props.updateBoardNotes(notes, props.id);
   };
 
   const onDeleteBoard = () => {
@@ -50,12 +50,12 @@ const Board = props => {
       <div className="NotesList">
         <Card.Group>
           {props.board &&
-            props.board.notes.map(note => {
+            props.board.notes.map((note, ind) => {
               return (
                 <Note
                   {...note}
-                  key={note.id}
-                  id={note.id}
+                  key={ind}
+                  id={ind}
                   onDeleteNote={deleteNote}
                 />
               );
@@ -66,19 +66,23 @@ const Board = props => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.id;
-  const brd = state.boards.find(board => board.id === id);
-  return {
-    board: brd
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     updateBoard: board => {
       dispatch(updateBoard(board));
+    },
+    updateBoardNotes: (notes, id) => {
+      dispatch(updateBoardNotes(notes, id));
     }
+  };
+};
+
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.id;
+  const brd = state.firestore.ordered.boards.find(board => board.id === id);
+  return {
+    board: brd,
+    id: id
   };
 };
 

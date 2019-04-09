@@ -1,6 +1,6 @@
 import React from "react";
 import { Divider, Container, Grid, Segment } from "semantic-ui-react";
-import "../styles/Sign.css";
+import "../../styles/Sign.css";
 
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";

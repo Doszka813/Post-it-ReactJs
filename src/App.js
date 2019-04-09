@@ -1,10 +1,10 @@
 import React from "react";
 import "../src/styles/App.css";
 import { Switch, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/layout/Navigation";
 import Wall from "./components/Wall";
 import Home from "./components/Home";
-import Sign from "./components/Sign";
+import Sign from "./components/auth/Sign";
 
 const App = () => {
   return (

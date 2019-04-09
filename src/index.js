@@ -2,39 +2,45 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
-import "./index.css";
-import App from "./App";
 import allReducers from "./reducers/all-reducers";
 import thunk from 'redux-thunk';
-
-import * as serviceWorker from "./serviceWorker";
-import "semantic-ui-css/semantic.min.css";
-
 import { createStore, applyMiddleware, compose } from "redux";
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/fbConfig';
+import * as serviceWorker from "./serviceWorker";
+import App from "./App";
 
-const persistedState = localStorage.getItem("boards")
-  ? JSON.parse(localStorage.getItem("boards"))
-  : [];
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import "semantic-ui-css/semantic.min.css";
+import "./index.css";
+
+
+
+// const persistedState = localStorage.getItem("boards")
+//   ? JSON.parse(localStorage.getItem("boards"))
+//   : [];
+
+// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   allReducers,
-  persistedState,
-  composeEnhancer(applyMiddleware(thunk)),
+  compose(
+    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+    reduxFirestore(fbConfig),
+    reactReduxFirebase(fbConfig, {attachAuthIsReady: true})
+  )
 );
 
-store.subscribe(() => {
-  localStorage.setItem("boards", JSON.stringify(store.getState()));
-});
-
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <Route path="/" component={App} />
-    </Router>
-  </Provider>,
-  document.getElementById("root")
-);
+store.firebaseAuthIsReady.then(() => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
+    </Provider>,
+    document.getElementById("root")
+  );
+})
 
 serviceWorker.unregister();

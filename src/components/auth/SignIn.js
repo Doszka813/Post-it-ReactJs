@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 
 import { Form, Button, Container } from "semantic-ui-react";
+import { connect } from 'react-redux';
+import { signIn } from '../../actions/auth-actions';
 
 class SignIn extends Component {
   constructor() {
@@ -19,10 +22,13 @@ class SignIn extends Component {
 
   signIn = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signIn(this.state);
+    this.props.history.push('/');
   };
 
   render() {
+    const { authError } = this.props;
+
     return (
       <Container className="SignIn">
         <Form onSubmit={this.signIn}>
@@ -35,13 +41,26 @@ class SignIn extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handleChange} />
           </Form.Field>
-          <Button size="big" color="green" inverted>
+          <Button onClick={this.signIn} size="big" color="green" inverted>
             Sign In
           </Button>
+          <br/>
+          <div>
+            {authError ? <p color="red"> {authError} </p> : null}
+          </div>
         </Form>
       </Container>
     );
   }
 }
-
-export default SignIn;
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds))
+  }
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

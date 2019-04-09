@@ -3,30 +3,26 @@ import React, { Component } from "react";
 import BoardForm from "./BoardForm";
 
 import { Header, Modal } from "semantic-ui-react";
-import "../styles/Creator.css";
+import "../../styles/Creator.css";
 
 class BoardCreator extends Component {
-    constructor(props) {
-        super();
-        this.state = {
-          board: {
-            id: new Date().getTime(),
-            name: "",
-            notes: []
-          }
-        };
-      }
+  constructor(props) {
+    super();
+    this.state = {
+        // id: new Date().getTime(),
+        name: "",
+        notes: []
+    };
+  }
 
   changeBoardName = e => {
-    const board = this.state.board;
-    board.name = e.target.value;
-    this.setState({ board });
+    this.setState({ name: e.target.value });
   };
 
-  onAddBoard = (e) => {
+  onAddBoard = e => {
     e.preventDefault();
-    const board = {...this.state.board};
-    this.props.addBoard(board);
+    // const board = { ...this.state };
+    this.props.addBoard(this.state);
   };
 
   render() {
@@ -43,6 +39,6 @@ class BoardCreator extends Component {
       </div>
     );
   }
-};
+}
 
 export default BoardCreator;
