@@ -1,10 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-
-var config = {
-
-};
+import '../../config';
+var config = config.firebaseConfig;
 
 firebase.initializeApp(config);
 firebase.firestore();
