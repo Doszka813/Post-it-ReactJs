@@ -5,6 +5,7 @@ import Navigation from "./components/layout/Navigation";
 import Wall from "./components/Wall";
 import Home from "./components/Home";
 import Sign from "./components/auth/Sign";
+import Profile from './components/profile/Profile';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route path="/wall" component={Wall} />
         <Route path="/signin" component={Sign} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </div>
   );
