@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "./Board/Board";
 import BoardCreator from "./Board/BoardCreator";
+import Notifications from "./notification/Notifications";
 
 import { addNewBoard, deleteBoard } from "../actions/board-actions";
 
@@ -13,7 +14,7 @@ import "../styles/Wall.css";
 
 const Wall = (props) => {
 
-  const { boards, auth } = props;
+  const { boards, auth, notifications } = props;
 
   const panes = boards && boards.map(board => ({
     menuItem: (
@@ -68,6 +69,7 @@ const Wall = (props) => {
           />
         )}
       </div>
+      <Notifications className="Notifications" notifications={notifications} />
     </div>
   );
 };
@@ -87,7 +89,8 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     boards: state.firestore.ordered.boards,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    notifications: state.firestore.ordered.notifications
   };
 };
 
@@ -96,5 +99,8 @@ export default compose(
     mapStateToProps,
     mapDispatchToProps
   ),
-  firestoreConnect([{ collection: 'boards' }])
+  firestoreConnect([
+    { collection: 'boards' },
+    { collection: 'notifications', limit: 3, orderBy: ['time', 'desc'] }
+  ])
 )(Wall);

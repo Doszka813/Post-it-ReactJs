@@ -1,0 +1,10 @@
+.Notification {
+    margin-bottom: 0.6rem;
+    padding: 0.5rem;
+    width: auto;
+    border-bottom: 1px dotted #fc466b
+
+}
+.Author {
+    color: #fc466b
+}

@@ -1,14 +1,10 @@
 import React from "react";
-import Board from "../Board/Board";
-import BoardCreator from "../Board/BoardCreator";
 
 import { addNewBoard, deleteBoard } from "../../actions/board-actions";
 
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { Redirect } from 'react-router-dom';
-import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
 import "../../styles/Wall.css";
 
 const Profile = (props) => {
