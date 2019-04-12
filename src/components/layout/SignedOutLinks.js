@@ -1,5 +1,5 @@
 import React from "react";
-import {  Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
 import { Icon, Menu } from "semantic-ui-react";
@@ -11,7 +11,7 @@ const SignedInLinks = () => {
         <Button size="big" color="green" inverted>
           <Icon name="user outline" />
           Log in
-          </Button>
+        </Button>
       </NavLink>
     </Menu.Item>
   );

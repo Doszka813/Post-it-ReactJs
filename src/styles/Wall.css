@@ -7,14 +7,13 @@
   justify-content: center;
 }
 .WallNav {
-  padding: 2rem;
+  padding: 1rem;
 }
-.Wrapped{
+.Wrapped {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 .Notifications {
   margin: 0 auto;
   width: 20%;

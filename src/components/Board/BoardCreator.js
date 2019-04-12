@@ -9,9 +9,8 @@ class BoardCreator extends Component {
   constructor(props) {
     super();
     this.state = {
-        // id: new Date().getTime(),
-        name: "",
-        notes: []
+      name: "",
+      notes: []
     };
   }
 
@@ -21,7 +20,6 @@ class BoardCreator extends Component {
 
   onAddBoard = e => {
     e.preventDefault();
-    // const board = { ...this.state };
     this.props.addBoard(this.state);
   };
 

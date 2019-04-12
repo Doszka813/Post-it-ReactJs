@@ -8,39 +8,40 @@ import { addNewBoard, deleteBoard } from "../actions/board-actions";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import { Button, Icon, Modal, Tab, Menu, Label } from "semantic-ui-react";
 import "../styles/Wall.css";
 
-const Wall = (props) => {
-
+const Wall = props => {
   const { boards, auth, notifications } = props;
 
-  const panes = boards && boards.map(board => ({
-    menuItem: (
-      <Menu.Item key={board.id}>
-        {board.name}
-        <Label circular color="blue">
-          {board.notes.length}
-        </Label>
-      </Menu.Item>
-    ),
-    render: () => (
-      <Tab.Pane>
-        <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
-      </Tab.Pane>
-    )
-  }));
+  const panes =
+    boards &&
+    boards.map(board => ({
+      menuItem: (
+        <Menu.Item key={board.id}>
+          {board.name}
+          <Label circular color="blue">
+            {board.notes.length}
+          </Label>
+        </Menu.Item>
+      ),
+      render: () => (
+        <Tab.Pane>
+          <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
+        </Tab.Pane>
+      )
+    }));
 
   const addBoard = board => {
     props.addBoard(board);
   };
-  
+
   const deleteBoard = id => {
     props.deleteBoard(id);
   };
 
-  if(!auth.uid) return <Redirect to='signin' />
+  if (!auth.uid) return <Redirect to="signin" />;
 
   return (
     <div className="Wall">
@@ -100,7 +101,7 @@ export default compose(
     mapDispatchToProps
   ),
   firestoreConnect([
-    { collection: 'boards' },
-    { collection: 'notifications', limit: 3, orderBy: ['time', 'desc'] }
+    { collection: "boards", orderBy: ["createdAt", "desc"] },
+    { collection: "notifications", limit: 3, orderBy: ["time", "desc"] }
   ])
 )(Wall);

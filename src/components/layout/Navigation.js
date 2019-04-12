@@ -6,11 +6,11 @@ import { connect } from "react-redux";
 
 import { Icon, Menu } from "semantic-ui-react";
 
-const Navigation = (props) => {
+const Navigation = props => {
   const { auth } = props;
   const links = auth.uid ? <SignedInLinks /> : <SignedOutLinks />;
   return (
-    <Menu size='huge'>
+    <Menu size="huge">
       <Menu.Item>
         <Link to="/">
           <Icon name="home" />
@@ -23,14 +23,14 @@ const Navigation = (props) => {
           Wall
         </Link>
       </Menu.Item>
-        { links }
+      {links}
     </Menu>
   );
 };
 
 const MapStateToProps = state => {
   return {
-    auth: state.firebase.auth,
+    auth: state.firebase.auth
   };
 };
 

@@ -3,7 +3,7 @@
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
-  background: #fc466b; 
-  background: -webkit-linear-gradient(to right, #fc466b, #3f5efb); 
-  background: linear-gradient(to right, #fc466b, #3f5efb); 
+  background: #fc466b;
+  background: -webkit-linear-gradient(to right, #fc466b, #3f5efb);
+  background: linear-gradient(to right, #fc466b, #3f5efb);
 }

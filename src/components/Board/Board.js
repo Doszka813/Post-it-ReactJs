@@ -3,15 +3,14 @@ import Note from "../Note/Note";
 import BoardSidebar from "./BoardSidebar";
 import { updateBoard, updateBoardNotes } from "../../actions/board-actions";
 import { connect } from "react-redux";
-import moment from 'moment';
+import moment from "moment";
 import { Card } from "semantic-ui-react";
 
 import "../../styles/Board.css";
 
 const Board = props => {
-  
   const addNote = note => {
-    const newBoard = {...props.board};
+    const newBoard = { ...props.board };
     newBoard.notes = [...newBoard.notes, note];
     props.updateBoardNotes(newBoard.notes, props.id);
   };
@@ -41,18 +40,16 @@ const Board = props => {
         addNote={addNote}
       />
 
-      <div>Created: {moment(props.board.createdAt.toDate()).calendar()} by {props.board.authorFirstName} {props.board.authorLastName}</div>
+      <div>
+        Created: {moment(props.board.createdAt.toDate()).calendar()} by{" "}
+        {props.board.authorFirstName} {props.board.authorLastName}
+      </div>
       <div className="NotesList">
         <Card.Group>
           {props.board &&
             props.board.notes.map((note, ind) => {
               return (
-                <Note
-                  {...note}
-                  key={ind}
-                  id={ind}
-                  onDeleteNote={deleteNote}
-                />
+                <Note {...note} key={ind} id={ind} onDeleteNote={deleteNote} />
               );
             })}
         </Card.Group>

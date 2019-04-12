@@ -1,5 +1,5 @@
 import React from "react";
-import moment from 'moment';
+import moment from "moment";
 
 import { Card, Button, Icon, Divider } from "semantic-ui-react";
 
@@ -13,7 +13,9 @@ const Note = props => {
       <Card.Content>
         <Card.Header>{props.title}</Card.Header>
         <Card.Meta>
-          <span className="date">{moment(props.createdAt.toDate()).calendar()}</span>
+          <span className="date">
+            {moment(props.createdAt.toDate()).calendar()}
+          </span>
         </Card.Meta>
         <Divider />
 

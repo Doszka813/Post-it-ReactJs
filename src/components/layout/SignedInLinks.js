@@ -12,9 +12,9 @@ const SignedInLinks = props => {
     <Menu.Menu position="right">
       <Menu.Item>
         <NavLink to="/profile">
-        <Label circular color='black' size='huge'>
-        {profile.initials}
-      </Label>
+          <Label circular color="black" size="huge">
+            {profile.initials}
+          </Label>
         </NavLink>
       </Menu.Item>
       <Menu.Item>
