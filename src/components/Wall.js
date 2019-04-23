@@ -17,21 +17,22 @@ const Wall = props => {
 
   const panes =
     boards &&
-    boards.map(board => ({
-      menuItem: (
-        <Menu.Item key={board.id}>
-          {board.name}
-          <Label circular color="blue">
-            {board.notes.length}
-          </Label>
-        </Menu.Item>
-      ),
-      render: () => (
-        <Tab.Pane>
-          <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
-        </Tab.Pane>
-      )
-    }));
+    boards
+      .map(board => ({
+        menuItem: (
+          <Menu.Item key={board.id}>
+            {board.name}
+            <Label circular color="blue">
+              {board.notes.length}
+            </Label>
+          </Menu.Item>
+        ),
+        render: () => (
+          <Tab.Pane>
+            <Board id={board.id} key={board.id} deleteBoard={deleteBoard} />
+          </Tab.Pane>
+        )
+      }));
 
   const addBoard = board => {
     props.addBoard(board);
@@ -48,7 +49,7 @@ const Wall = props => {
       <div className="WallNav">
         <Modal
           trigger={
-            <Button size="big" primary>
+            <Button primary>
               <Icon name="add" />
               Add Board
             </Button>
@@ -70,6 +71,7 @@ const Wall = props => {
           />
         )}
       </div>
+
       <Notifications className="Notifications" notifications={notifications} />
     </div>
   );

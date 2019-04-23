@@ -2,25 +2,30 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions/auth-actions";
+import { Redirect } from 'react-router-dom';
 
-import { Icon, Menu, Button, Label } from "semantic-ui-react";
+import { Icon, Menu, Button } from "semantic-ui-react";
 
 const SignedInLinks = props => {
   const { profile } = props;
 
+  const onSignOut = () => {
+    props.signOut();
+    return <Redirect to="/" />;
+  }
+  
   return (
     <Menu.Menu position="right">
       <Menu.Item>
         <NavLink to="/profile">
-          <Label circular color="black" size="huge">
-            {profile.initials}
-          </Label>
+          <Icon circular name="user" />
+          {profile.initials}
         </NavLink>
       </Menu.Item>
       <Menu.Item>
         <Button
           className="logOuBtn"
-          onClick={props.signOut}
+          onClick={onSignOut}
           size="big"
           color="green"
           inverted

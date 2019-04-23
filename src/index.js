@@ -10,18 +10,8 @@ import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/fbConfig';
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
-
-
 import "semantic-ui-css/semantic.min.css";
 import "./index.css";
-
-
-
-// const persistedState = localStorage.getItem("boards")
-//   ? JSON.parse(localStorage.getItem("boards"))
-//   : [];
-
-// const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   allReducers,
