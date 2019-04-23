@@ -1,5 +1,7 @@
 
+Simple application allowing you to create boards on wall and add/remove notes.
 
+Deployed at: https://postit-a38b6.firebaseapp.com/
 
 ## Available Scripts
 
