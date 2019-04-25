@@ -1,10 +1,12 @@
 .Wall {
-  background-color: #ffffff;
+  background-color: #ffffff71;
   width: 80%;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   justify-content: center;
+  max-width: 2000px;
+  min-width: 365px;
 }
 .WallNav {
   padding: 1rem;
@@ -12,7 +14,10 @@
 .Wrapped {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none;
 }
 .Notifications {
   margin: 0 auto;

@@ -19,6 +19,8 @@ export default class SidebarExampleSidebar extends Component {
           floated="left"
           disabled={visible}
           onClick={this.handleShowClick}
+          basic
+          color="blue"
         >
           <Icon name="angle left" />
         </Button>

@@ -25,7 +25,6 @@ class NoteCreator extends Component {
 
   onAddNote = e => {
     e.preventDefault();
-    // const note = { ...this.state };
     this.props.addNote(this.state);
   };
 

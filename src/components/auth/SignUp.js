@@ -65,7 +65,7 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Field>
-            <Button size="big" color="green" inverted>
+            <Button size="small" color="green" inverted>
               Sign Up
             </Button>
             <div className="Error">

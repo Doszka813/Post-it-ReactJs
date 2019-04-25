@@ -40,7 +40,7 @@ class SignIn extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" onChange={this.handleChange} />
           </Form.Field>
-          <Button onClick={this.signIn} size="big" color="green" inverted>
+          <Button onClick={this.signIn} size="small" color="green" inverted>
             Sign In
           </Button>
           <br/>

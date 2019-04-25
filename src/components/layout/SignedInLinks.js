@@ -26,7 +26,7 @@ const SignedInLinks = props => {
         <Button
           className="logOuBtn"
           onClick={onSignOut}
-          size="big"
+          size="small"
           color="green"
           inverted
         >

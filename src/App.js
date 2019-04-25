@@ -2,14 +2,15 @@ import React from "react";
 import "../src/styles/App.css";
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/layout/Navigation";
-import Wall from "./components/Wall";
+import Wall from "./components/WallView/Wall";
 import Home from "./components/Home";
 import Sign from "./components/auth/Sign";
 import Profile from './components/profile/Profile';
+import { Responsive } from "semantic-ui-react";
 
 const App = () => {
   return (
-    <div className="App">
+    <Responsive className="App">
       <Navigation />
       <Switch>
         <Route exact path="/" component={Home} />
@@ -17,7 +18,7 @@ const App = () => {
         <Route path="/signin" component={Sign} />
         <Route path="/profile" component={Profile} />
       </Switch>
-    </div>
+    </Responsive>
   );
 };
 
