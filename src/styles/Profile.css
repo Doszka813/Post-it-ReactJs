@@ -1,0 +1,11 @@
+.ProfileInfo {
+  background-color: #ffffff71;
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  justify-content: center;
+  max-width: 2000px;
+  min-width: 365px;
+}

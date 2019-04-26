@@ -1,5 +1,18 @@
-.Info {
+.Infos {
     margin-top: 0.5rem;
-    padding: 0.2rem;
+    padding: 1rem;
     height: auto;
+    position: relative;
+    bottom: 0;
+}
+
+.InfoLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Info {
+    margin-right: 0.5rem;
+    width: 100px;
 }

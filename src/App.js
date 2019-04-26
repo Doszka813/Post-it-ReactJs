@@ -5,6 +5,7 @@ import Navigation from "./components/layout/Navigation";
 import Wall from "./components/WallView/Wall";
 import Home from "./components/Home";
 import Sign from "./components/auth/Sign";
+import AuthorInfo from './components/Footer/AuthorInfo';
 import Profile from './components/profile/Profile';
 import { Responsive } from "semantic-ui-react";
 
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/signin" component={Sign} />
         <Route path="/profile" component={Profile} />
       </Switch>
+      <AuthorInfo />
     </Responsive>
   );
 };

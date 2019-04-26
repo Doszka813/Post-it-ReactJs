@@ -19,7 +19,7 @@ export default class MobileMenu extends Component {
           name="bars"
           color="blue"
           className="menuFixed"
-          size="small"
+          size="large"
           floated="left"
           disabled={visible}
           onClick={this.handleShowClick}

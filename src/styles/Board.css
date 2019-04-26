@@ -2,8 +2,8 @@
   margin: 1rem auto;
   width: 100%;
   height: 60vh;
+  padding: 0.5rem;
   min-height: 500px;
-  padding: 1rem;
   justify-content: center;
   overflow: hidden
 }
@@ -11,8 +11,7 @@
 .NotesList {
   margin: 4rem auto;
   padding: 0.5rem;
-  height: 100%;
+  height: 75%;
   overflow: scroll;
-  scrollbar-width: none;
   overflow-x: auto;
 }

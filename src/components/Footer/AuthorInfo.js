@@ -1,28 +1,34 @@
 import React from "react";
-import { Header, Icon, Divider } from "semantic-ui-react";
-import '../../styles/Footer.css';
+import { Icon, Divider } from "semantic-ui-react";
+import "../../styles/Footer.css";
 const AuthorInfo = props => (
-  <div className="Info">
+  <div className="Infos">
     <div>
-      <p>Copyrights &copy; 2019 All rights reserved</p>
+      <h5>Copyrights &copy; 2019 All rights reserved</h5>
     </div>
     <Divider horizontal>
       <Icon name="angle down" color="blue" />
     </Divider>
-    <div>
-      <p>
-        <Header>Contact info:</Header>
-        <Icon name="mail outline" color="blue" />
+    <div className="InfoLinks">
+      <div className="Info">
+        <Icon name="mail" color="blue" size="huge" />
         <br />
         lewillas@gmail.com
-      </p>
-      <p>
-        Find us on GitHub
-        <br />
+      </div>
+      <div className="Info">
         <a href="https://github.com/Doszka813">
-          <Icon name="github" target="_blank" />
+          <Icon name="github" target="_blank" size="huge" />
         </a>
-      </p>
+        <br />
+        GitHub
+      </div>
+      <div className="Info">
+        <a href="https://www.linkedin.com/in/dominika-kaminska/">
+          <Icon name="linkedin" target="_blank" size="huge" />
+        </a>
+        <br />
+        LinkedIn
+      </div>
     </div>
   </div>
 );

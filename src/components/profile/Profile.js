@@ -2,18 +2,26 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import "../../styles/Wall.css";
-import { Header } from 'semantic-ui-react';
+import "../../styles/Profile.css";
+import { Header, Divider } from "semantic-ui-react";
+import ImageLoader from "./ImageLoader";
 
 const Profile = props => {
   const { profile } = props;
 
+  const fileUploadHandler = (file) => {
+
+  };
+
   return (
-    <div className="Wall">
-      <Header>
+    <div className="ProfileInfo">
+      <Header color="blue">
         {profile.firstName} {profile.lastName}
       </Header>
-      <div className="" />
+      <Divider section />
+      <ImageLoader
+        fileUploadHandler={fileUploadHandler}
+      />
     </div>
   );
 };
@@ -26,5 +34,5 @@ const mapStateToProps = state => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([{ collection: "boards" }])
+  firestoreConnect([{ collection: "users" }])
 )(Profile);

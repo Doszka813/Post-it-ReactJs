@@ -1,7 +1,6 @@
 import React from "react";
 import Board from "../Board/Board";
 import BoardCreator from "../Board/BoardCreator";
-import AuthorInfo from "../Footer/AuthorInfo";
 import { addNewBoard, deleteBoard } from "../../actions/board-actions";
 
 import { compose } from "redux";
@@ -71,7 +70,6 @@ const Wall = props => {
           </div>
         )}
       </div>
-      <AuthorInfo />
     </div>
   );
 };
