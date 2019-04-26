@@ -35,13 +35,13 @@ export default class SidebarExampleSidebar extends Component {
           visible={visible}
         >
           <Menu.Item as="a">
-            <Button primary onClick={this.props.onDeleteBoard}>
+            <Button size="small" primary onClick={this.props.onDeleteBoard}>
               <Icon name="remove circle" />
               Delete board
             </Button>
           </Menu.Item>
           <Menu.Item as="a">
-            <Button primary onClick={this.props.deleteAllNotes}>
+            <Button size="small"  primary onClick={this.props.deleteAllNotes}>
               <Icon name="delete" />
               Remove notes
             </Button>
@@ -49,7 +49,7 @@ export default class SidebarExampleSidebar extends Component {
           <Menu.Item>
             <Modal
               trigger={
-                <Button primary>
+                <Button size="small" primary>
                   <Icon name="plus circle" />
                   Add Note{" "}
                 </Button>

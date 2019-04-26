@@ -2,38 +2,46 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions/auth-actions";
-import { Redirect } from 'react-router-dom';
-
-import { Icon, Menu, Button } from "semantic-ui-react";
+import { Responsive, Label, Menu, Button } from "semantic-ui-react";
+import LogoutButton from "./LogoutButton";
 
 const SignedInLinks = props => {
   const { profile } = props;
 
   const onSignOut = () => {
     props.signOut();
-    return <Redirect to="/" />;
-  }
-  
+  };
+
   return (
     <Menu.Menu position="right">
-      <Menu.Item>
-        <NavLink to="/profile">
-          <Icon circular name="user" />
-          {profile.initials}
-        </NavLink>
-      </Menu.Item>
-      <Menu.Item>
-        <Button
-          className="logOuBtn"
-          onClick={onSignOut}
-          size="small"
-          color="green"
-          inverted
-        >
-          <Icon name="power off" />
-          Log Out
-        </Button>
-      </Menu.Item>
+      <Responsive minWidth={769}>
+        <Menu.Item>
+          <Button.Group>
+            <Button>
+              <NavLink to="/profile">
+                <Label as="a" image size="large">
+                  <img alt="profile_picture" src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg" />
+                  {profile.initials}
+                </Label>
+              </NavLink>
+            </Button>
+            <LogoutButton signOut={onSignOut} />
+          </Button.Group>
+        </Menu.Item>
+      </Responsive>
+      <Responsive maxWidth={768}>
+        <Menu.Item>
+          <NavLink to="/profile">
+            <Label as="a" image>
+              <img alt="profile_picture" src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg" />
+              {profile.initials}
+            </Label>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <LogoutButton signOut={onSignOut} />
+        </Menu.Item>
+      </Responsive>
     </Menu.Menu>
   );
 };

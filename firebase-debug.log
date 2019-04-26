@@ -1,29 +1,29 @@
-[debug] [2019-04-25T13:55:40.115Z] ----------------------------------------------------------------------
-[debug] [2019-04-25T13:55:40.117Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
-[debug] [2019-04-25T13:55:40.117Z] CLI Version:   6.6.0
-[debug] [2019-04-25T13:55:40.117Z] Platform:      linux
-[debug] [2019-04-25T13:55:40.117Z] Node Version:  v8.10.0
-[debug] [2019-04-25T13:55:40.117Z] Time:          Thu Apr 25 2019 15:55:40 GMT+0200 (CEST)
-[debug] [2019-04-25T13:55:40.117Z] ----------------------------------------------------------------------
+[debug] [2019-04-26T10:40:10.502Z] ----------------------------------------------------------------------
+[debug] [2019-04-26T10:40:10.504Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-04-26T10:40:10.504Z] CLI Version:   6.6.0
+[debug] [2019-04-26T10:40:10.504Z] Platform:      linux
+[debug] [2019-04-26T10:40:10.504Z] Node Version:  v8.10.0
+[debug] [2019-04-26T10:40:10.504Z] Time:          Fri Apr 26 2019 12:40:10 GMT+0200 (CEST)
+[debug] [2019-04-26T10:40:10.504Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-04-25T13:55:40.123Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-04-25T13:55:40.123Z] > authorizing via signed-in user
-[debug] [2019-04-25T13:55:40.123Z] [iam] checking project postit-a38b6 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
-[debug] [2019-04-25T13:55:40.125Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2019-04-25T13:55:40.125Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2019-04-26T10:40:10.510Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-26T10:40:10.510Z] > authorizing via signed-in user
+[debug] [2019-04-26T10:40:10.510Z] [iam] checking project postit-a38b6 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-04-26T10:40:10.512Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-04-26T10:40:10.512Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2019-04-25T13:55:40.349Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:40.352Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/postit-a38b6:testIamPermissions  
+[debug] [2019-04-26T10:40:10.751Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:10.756Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/postit-a38b6:testIamPermissions  
 
-[debug] [2019-04-25T13:55:41.285Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:41.287Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/postit-a38b6  
+[debug] [2019-04-26T10:40:11.702Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:11.704Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/postit-a38b6  
  
-[debug] [2019-04-25T13:55:41.651Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:12.032Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'postit-a38b6'...
 [info] 
 [info] i  deploying functions, hosting
-[debug] [2019-04-25T13:55:42.814Z] > [functions] package.json contents: {
+[debug] [2019-04-26T10:40:13.147Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -40,41 +40,18 @@
   "private": true
 }
 [info] i  functions: ensuring necessary APIs are enabled...
-[debug] [2019-04-25T13:55:42.815Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/postit-a38b6?view=CONSUMER_VIEW  
+[debug] [2019-04-26T10:40:13.147Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/postit-a38b6?view=CONSUMER_VIEW  
  
-[debug] [2019-04-25T13:55:42.815Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/postit-a38b6?view=CONSUMER_VIEW  
+[debug] [2019-04-26T10:40:13.148Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/postit-a38b6?view=CONSUMER_VIEW  
  
-[debug] [2019-04-25T13:55:44.214Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:44.320Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:14.569Z] <<< HTTP RESPONSE 200
 [info] ✔  functions: all necessary APIs are enabled
-[debug] [2019-04-25T13:55:44.321Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/postit-a38b6  
+[debug] [2019-04-26T10:40:14.666Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:14.666Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/postit-a38b6  
  
-[debug] [2019-04-25T13:55:45.182Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:45.183Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/514224469915:getServerAppConfig  
+[debug] [2019-04-26T10:40:15.546Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:15.547Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/514224469915:getServerAppConfig  
  
-[debug] [2019-04-25T13:55:45.456Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:45.457Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/postit-a38b6/versions  
+[debug] [2019-04-26T10:40:15.900Z] <<< HTTP RESPONSE 200
+[debug] [2019-04-26T10:40:15.901Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/postit-a38b6/versions  
 
-[debug] [2019-04-25T13:55:46.837Z] <<< HTTP RESPONSE 200
-[info] i  functions: preparing functions directory for uploading...
-[debug] [2019-04-25T13:55:46.839Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/postit-a38b6/configs  
- 
-[debug] [2019-04-25T13:55:47.227Z] <<< HTTP RESPONSE 200
-[info] i  functions: packaged functions (1.27 KB) for uploading
-[debug] [2019-04-25T13:55:47.593Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/postit-a38b6/locations/us-central1/functions:generateUploadUrl  
- 
-[debug] [2019-04-25T13:55:48.064Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:48.065Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-80f448af-752b-40a9-88e5-5c82bde429b6/0d2453f2-cb9d-48b0-b122-71aea84817ff.zip?GoogleAccessId=service-514224469915@gcf-admin-robot.iam.gserviceaccount.com&Expires=1556202347&Signature=HPsVyBoKJDt97GocCTyF9YNF6ifXETxY2%2FVqNZbypHAmP%2BimOObi%2Br7nlC8NnB9Gz8tFxNSML8TsmHqA3JwLB%2F1TXP1Tl3dGGF7HmlZHB7Dmqun8kE5x%2FXcLW88alN%2BBrExy1aHhdiDQtVM0Kqr3EyhYeVcjvQMB69VpgxaLqqQ59w1VsF9osOgzJa9axE62EP2jEdoQfCJTflIZoyB8ux2JXt7ZiXQHCVvBzUtHMDYKZnOCTR6YDgSlyWxS%2FeEKwUi6Ue5Bd8WRzkxBYctfh7rQ3QRouneegSvhcAoKmyQAK6z6%2F8TGxEWnnIdv08Maj8PWqCd%2BhKD1WUHuGYh6SA%3D%3D  
-
-[debug] [2019-04-25T13:55:48.457Z] <<< HTTP RESPONSE 200
-[info] ✔  functions: functions folder uploaded successfully
-[info] i  hosting[postit-a38b6]: beginning deploy...
-[info] i  hosting[postit-a38b6]: found 36 files in dist
-[debug] [2019-04-25T13:55:48.475Z] [hosting] hash cache [ZGlzdA] load error: lines is not defined
-[debug] [2019-04-25T13:55:49.109Z] [hosting] hash cache [ZGlzdA] stored for 36 files
-[debug] [2019-04-25T13:55:49.109Z] [hosting][hash queue][FINAL]
-[debug] [2019-04-25T13:55:49.109Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/postit-a38b6/versions/c730f205ea1ba410:populateFiles  
- <request body omitted>
-[debug] [2019-04-25T13:55:50.826Z] <<< HTTP RESPONSE 200
-[debug] [2019-04-25T13:55:50.834Z] [hosting][populate queue][FINAL]
-[debug] [2019-04-25T13:55:50.834Z] [hosting] uploads queued: 8

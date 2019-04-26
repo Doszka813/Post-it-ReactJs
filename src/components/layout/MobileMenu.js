@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Icon, Menu, Sidebar } from "semantic-ui-react";
+import { Icon, Menu, Sidebar } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "../../styles/Navigation.css";
 
@@ -15,15 +15,15 @@ export default class MobileMenu extends Component {
 
     return (
       <div>
-        <Button
+        <Icon
+          name="bars"
+          color="blue"
           className="menuFixed"
           size="small"
           floated="left"
           disabled={visible}
           onClick={this.handleShowClick}
-        >
-          <Icon name="bars" />
-        </Button>
+        />
         <Sidebar
           as={Menu}
           animation="overlay"

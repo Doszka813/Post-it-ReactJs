@@ -3,15 +3,16 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import "../../styles/Wall.css";
+import { Header } from 'semantic-ui-react';
 
 const Profile = props => {
   const { profile } = props;
 
   return (
     <div className="Wall">
-      <h2>
+      <Header>
         {profile.firstName} {profile.lastName}
-      </h2>
+      </Header>
       <div className="" />
     </div>
   );

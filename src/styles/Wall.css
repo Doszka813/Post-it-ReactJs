@@ -1,6 +1,6 @@
 .Wall {
   background-color: #ffffff71;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -12,14 +12,15 @@
   padding: 1rem;
 }
 .Wrapped {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap; */
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   scrollbar-width: none;
 }
 .Notifications {
+  
   margin: 0 auto;
   width: 20%;
 }

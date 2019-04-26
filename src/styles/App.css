@@ -4,7 +4,9 @@
   height: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  background: #fc466b;
+  background-image: url("../img/15.jpg");
+  background-size: cover;
+  /* background: #fc466b;
   background: -webkit-linear-gradient(to right, #fc466b, #3f5efb);
-  background: linear-gradient(to right, #fc466b, #3f5efb);
+  background: linear-gradient(to right, #fc466b, #3f5efb); */
 }

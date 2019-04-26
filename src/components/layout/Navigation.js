@@ -15,7 +15,7 @@ const Navigation = props => {
   return (
     <div className="Navigation">
       <Responsive minWidth={769}>
-        <Menu size="huge">
+        <Menu size="small">
           <Menu.Item>
             <Link to="/">
               <Icon name="home" />

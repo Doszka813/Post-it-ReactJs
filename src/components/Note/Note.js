@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 
-import { Card, Button, Icon, Divider } from "semantic-ui-react";
+import { Card, Button, Rating, Icon, Divider } from "semantic-ui-react";
 
 import "../../styles/Note.css";
 
@@ -11,6 +11,7 @@ const Note = props => {
   return (
     <Card className="Note" color='blue'>
       <Card.Content>
+        <Card.Header><Rating icon='star' maxRating={5} clearable size='large'/></Card.Header>
         <Card.Header>{props.title}</Card.Header>
         <Card.Meta>
           <span className="date">
