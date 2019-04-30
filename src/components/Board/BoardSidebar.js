@@ -3,22 +3,23 @@ import { Button, Icon, Menu, Sidebar, Modal } from "semantic-ui-react";
 import NoteCreator from "../Note/NoteCreator";
 
 export default class SidebarExampleSidebar extends Component {
-  state = { visible: false };
+  state = { barVisible: false, modalVisible: false };
 
-  handleHideClick = () => this.setState({ visible: false });
-  handleShowClick = () => this.setState({ visible: true });
-  handleSidebarHide = () => this.setState({ visible: false });
+  handleHideClick = () => this.setState({ barVisible: false });
+  handleSidebarShowClick = () => this.setState({ barVisible: true });
+  handleSidebarHide = () => this.setState({ barVisible: false });
+
+  handleModalShowClick = () => this.setState({ modalVisible: true });
+  handleModalHideClick = () => this.setState({ modalVisible: false });
 
   render() {
-    const { visible } = this.state;
-
     return (
       <div>
         <Button
           circular
           floated="left"
-          disabled={visible}
-          onClick={this.handleShowClick}
+          disabled={this.state.barVisible}
+          onClick={this.handleSidebarShowClick}
           basic
           color="blue"
         >
@@ -32,7 +33,7 @@ export default class SidebarExampleSidebar extends Component {
           inverted
           onHide={this.handleSidebarHide}
           vertical
-          visible={visible}
+          visible={this.state.barVisible}
         >
           <Menu.Item as="a">
             <Button size="small" primary onClick={this.props.onDeleteBoard}>
@@ -41,7 +42,7 @@ export default class SidebarExampleSidebar extends Component {
             </Button>
           </Menu.Item>
           <Menu.Item as="a">
-            <Button size="small"  primary onClick={this.props.deleteAllNotes}>
+            <Button size="small" primary onClick={this.props.deleteAllNotes}>
               <Icon name="delete" />
               Remove notes
             </Button>
@@ -49,16 +50,24 @@ export default class SidebarExampleSidebar extends Component {
           <Menu.Item>
             <Modal
               trigger={
-                <Button size="small" primary>
+                <Button
+                  size="small"
+                  primary
+                  onClick={this.handleModalShowClick}
+                >
                   <Icon name="plus circle" />
                   Add Note{" "}
                 </Button>
               }
+              open={this.state.modalVisible}
               size="tiny"
               centered={false}
               dimmer="blurring"
             >
-              <NoteCreator addNote={this.props.addNote} />
+              <NoteCreator
+                handleClose={this.handleModalHideClick}
+                addNote={this.props.addNote}
+              />
             </Modal>
           </Menu.Item>
         </Sidebar>

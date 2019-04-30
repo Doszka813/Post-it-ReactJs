@@ -4,14 +4,12 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import "../../styles/Profile.css";
 import { Header, Divider } from "semantic-ui-react";
-import ImageLoader from "./ImageLoader";
+import { Redirect } from "react-router-dom";
 
 const Profile = props => {
-  const { profile } = props;
+  const { profile, auth } = props;
 
-  const fileUploadHandler = (file) => {
-
-  };
+  if (!auth.uid) return <Redirect to="/signin" />;
 
   return (
     <div className="ProfileInfo">
@@ -19,16 +17,14 @@ const Profile = props => {
         {profile.firstName} {profile.lastName}
       </Header>
       <Divider section />
-      <ImageLoader
-        fileUploadHandler={fileUploadHandler}
-      />
     </div>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    profile: state.firebase.profile
+    profile: state.firebase.profile,
+    auth: state.firebase.auth,
   };
 };
 

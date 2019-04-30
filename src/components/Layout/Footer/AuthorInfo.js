@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon, Divider } from "semantic-ui-react";
-import "../../styles/Footer.css";
+import "../../../styles/Footer.css";
 const AuthorInfo = props => (
   <div className="Infos">
     <div>

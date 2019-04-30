@@ -1,12 +1,12 @@
 import React from "react";
 import "../src/styles/App.css";
 import { Switch, Route } from "react-router-dom";
-import Navigation from "./components/layout/Navigation";
-import Wall from "./components/WallView/Wall";
+import Navigation from "./components/Layout/Navigation";
+import Wall from "./components/Wall/Wall";
 import Home from "./components/Home";
-import Sign from "./components/auth/Sign";
-import AuthorInfo from './components/Footer/AuthorInfo';
-import Profile from './components/profile/Profile';
+import Sign from "./components/Auth/Sign";
+import AuthorInfo from './components/Layout/Footer/AuthorInfo';
+import Profile from './components/Profile/Profile';
 import { Responsive } from "semantic-ui-react";
 
 const App = () => {

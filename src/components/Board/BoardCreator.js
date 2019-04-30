@@ -19,7 +19,6 @@ class BoardCreator extends Component {
   };
 
   onAddBoard = e => {
-    e.preventDefault();
     this.props.addBoard(this.state);
   };
 
@@ -31,6 +30,7 @@ class BoardCreator extends Component {
           <BoardForm
             changeBoardName={this.changeBoardName}
             onAddBoard={this.onAddBoard}
+            handleClose={this.props.handleClose}
           />
         </Modal.Content>
         <br />

@@ -57,6 +57,7 @@ const Board = props => {
                   <Note
                     {...note}
                     key={ind}
+                    boardId={props.board.id}
                     id={ind}
                     onDeleteNote={deleteNote}
                   />

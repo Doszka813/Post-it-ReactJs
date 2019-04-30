@@ -11,7 +11,8 @@ class NoteCreator extends Component {
     this.state = {
       title: "",
       text: "",
-      createdAt: new Date()
+      createdAt: new Date(),
+      done: false
     };
   }
 
@@ -24,7 +25,6 @@ class NoteCreator extends Component {
   };
 
   onAddNote = e => {
-    e.preventDefault();
     this.props.addNote(this.state);
   };
 
@@ -37,6 +37,7 @@ class NoteCreator extends Component {
             changeNoteTitle={this.changeNoteTitle}
             changeNoteTxt={this.changeNoteTxt}
             onAddNote={this.onAddNote}
+            handleClose={this.props.handleClose}
           />
         </Modal.Content>
       </div>

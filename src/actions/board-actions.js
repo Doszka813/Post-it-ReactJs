@@ -36,6 +36,7 @@ export const deleteBoard = id => {
       });
   };
 };
+
 export const updateBoardNotes = (notes, id) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
