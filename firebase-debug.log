@@ -1,0 +1,13 @@
+[debug] [2019-04-30T13:19:40.631Z] ----------------------------------------------------------------------
+[debug] [2019-04-30T13:19:40.633Z] Command:       /usr/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-04-30T13:19:40.633Z] CLI Version:   6.6.0
+[debug] [2019-04-30T13:19:40.633Z] Platform:      linux
+[debug] [2019-04-30T13:19:40.633Z] Node Version:  v8.10.0
+[debug] [2019-04-30T13:19:40.633Z] Time:          Tue Apr 30 2019 15:19:40 GMT+0200 (CEST)
+[debug] [2019-04-30T13:19:40.633Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-04-30T13:19:40.638Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-04-30T13:19:40.638Z] > authorizing via signed-in user
+[debug] [2019-04-30T13:19:40.639Z] [iam] checking project postit-a38b6 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-04-30T13:19:40.640Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/postit-a38b6:testIamPermissions  
+

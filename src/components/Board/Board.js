@@ -4,7 +4,7 @@ import BoardSidebar from "./BoardSidebar";
 import { updateBoard, updateBoardNotes } from "../../actions/board-actions";
 import { connect } from "react-redux";
 import moment from "moment";
-import { Card, Header } from "semantic-ui-react";
+import { Card, Header, Divider } from "semantic-ui-react";
 
 import "../../styles/Board.css";
 
@@ -36,9 +36,9 @@ const Board = props => {
     <div className="Board">
       <Header color="blue">{props.board.name}</Header>
       <div>
-        Created: {moment(props.board.createdAt.toDate()).calendar()} by{" "}
-        {props.board.authorFirstName} {props.board.authorLastName}
+        Created: {moment(props.board.createdAt.toDate()).calendar()}
       </div>
+      <Divider />
       <BoardSidebar
         onDeleteBoard={onDeleteBoard}
         deleteAllNotes={deleteAllNotes}

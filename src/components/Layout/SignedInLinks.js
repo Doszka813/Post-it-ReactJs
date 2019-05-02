@@ -15,7 +15,7 @@ const SignedInLinks = props => {
   return (
     <Menu.Menu position="right">
       <Responsive minWidth={769}>
-        <Menu.Item>
+        <Menu.Item >
           <Button.Group>
             <Button>
               <NavLink to="/profile">

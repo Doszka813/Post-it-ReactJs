@@ -46,7 +46,7 @@ class Note extends Component {
     const { note } = this.props;
 
     return (
-      <Card className="Note" color="blue">
+      <Card className="Note" color={ this.state.done ? "blue" : "grey"}>
         {note.done ? (
           <Popup
             trigger={
@@ -57,12 +57,12 @@ class Note extends Component {
                   as: "a",
                   color: "grey",
                   corner: "left",
-                  icon: "check",
+                  icon: "undo",
                   size: "small"
                 }}
               />
             }
-            content="Mark as still to be done"
+            content="Mark as undone"
             position="left center"
           />
         ) : (
@@ -97,9 +97,9 @@ class Note extends Component {
           <Divider />
           <Card.Description>{note.text}</Card.Description>
         </Card.Content>
-        <Button animated basic onClick={this.deleteNote}>
+        <Button animated onClick={this.deleteNote}>
           <Button.Content visible>
-            <Icon name="trash" />
+            <Icon name="trash" color={ this.state.done ? "blue" : "grey"} />
           </Button.Content>
           <Button.Content hidden>Remove</Button.Content>
         </Button>

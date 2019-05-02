@@ -17,18 +17,21 @@ export default class SidebarExampleSidebar extends Component {
       <div>
         <Button
           circular
-          floated="left"
+          floated="right"
           disabled={this.state.barVisible}
           onClick={this.handleSidebarShowClick}
           basic
           color="blue"
         >
-          <Icon name="angle left" />
+          {" "}
+          Edit
+          <Icon name="angle right" />
         </Button>
 
         <Sidebar
           as={Menu}
           animation="overlay"
+          direction="right"
           icon="labeled"
           inverted
           onHide={this.handleSidebarHide}
