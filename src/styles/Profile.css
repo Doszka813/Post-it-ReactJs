@@ -5,7 +5,15 @@
   margin: 0 auto;
   padding: 1rem;
   border-radius: 0.5rem;
-  justify-content: center;
   max-width: 2000px;
   min-width: 365px;
+}
+
+.Stats {
+  margin: 2rem auto;
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly; 
 }

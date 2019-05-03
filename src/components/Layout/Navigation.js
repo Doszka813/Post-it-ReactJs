@@ -24,7 +24,7 @@ const Navigation = props => {
           </Menu.Item>
           <Menu.Item>
             <Link to="wall">
-              <Icon name="table" />
+              <Icon name="clipboard outline" />
               Wall
             </Link>
           </Menu.Item>
