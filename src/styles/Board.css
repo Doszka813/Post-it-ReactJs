@@ -2,10 +2,10 @@
   margin: 1rem auto;
   width: 100%;
   height: 60vh;
-  padding: 0.5rem;
+  padding: 0rem;
   min-height: 500px;
   justify-content: center;
-  overflow-y: hidden
+  overflow-y: hidden;
 }
 
 .NotesList {
@@ -13,6 +13,10 @@
   padding: 0.5rem;
   height: 75%;
   overflow-y: auto;
-  overflow-x: hidden
-
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }

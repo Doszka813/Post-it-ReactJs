@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions/auth-actions";
-import { Responsive, Label, Menu, Button } from "semantic-ui-react";
+import { Responsive, Label, Menu, Button, Divider } from "semantic-ui-react";
 import LogoutButton from "./LogoutButton";
 
 const SignedInLinks = props => {
@@ -15,12 +15,15 @@ const SignedInLinks = props => {
   return (
     <Menu.Menu position="right">
       <Responsive minWidth={769}>
-        <Menu.Item >
+        <Menu.Item>
           <Button.Group>
             <Button>
               <NavLink to="/profile">
                 <Label as="a" image size="large">
-                  <img alt="profile_picture" src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg" />
+                  <img
+                    alt="profile_picture"
+                    src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg"
+                  />
                   {profile.initials}
                 </Label>
               </NavLink>
@@ -33,7 +36,10 @@ const SignedInLinks = props => {
         <Menu.Item>
           <NavLink to="/profile">
             <Label as="a" image>
-              <img alt="profile_picture" src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg" />
+              <img
+                alt="profile_picture"
+                src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg"
+              />
               {profile.initials}
             </Label>
           </NavLink>

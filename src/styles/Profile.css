@@ -2,18 +2,14 @@
   background-color: #ffffff71;
   width: 90%;
   height: 80vh;
-  margin: 0 auto;
-  padding: 1rem;
+  margin: 0rem auto;
+  padding: 2rem;
   border-radius: 0.5rem;
   max-width: 2000px;
   min-width: 365px;
 }
 
 .Stats {
-  margin: 2rem auto;
-  display: flex;
-  width: 90%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly; 
+  width: 100%;
+  justify-content: center; 
 }

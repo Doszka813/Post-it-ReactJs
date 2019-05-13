@@ -22,12 +22,13 @@ export default class SidebarExampleSidebar extends Component {
           onClick={this.handleSidebarShowClick}
           basic
           color="blue"
+          animated
         >
-          {" "}
-          Edit
-          <Icon name="angle right" />
+          <Button.Content visible>
+            <Icon name="angle right" color="blue" />
+          </Button.Content>
+          <Button.Content hidden>Options</Button.Content>
         </Button>
-
         <Sidebar
           as={Menu}
           animation="overlay"

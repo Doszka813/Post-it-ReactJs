@@ -7,7 +7,7 @@ const Home = () => {
       <div className="HomeInfo">
         <h1>Post-it</h1>
         <h2>
-          Create Boards <br />
+          Create boards <br />
           add notes...
           <br />
         </h2>

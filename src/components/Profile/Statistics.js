@@ -20,37 +20,35 @@ const Statistics = props => {
     return count;
   }
   return (
-    <div className="Stats">
-      <Statistic.Group>
-        <Statistic>
+      <Statistic.Group className="Stats">
+        <Statistic className="Stat">
           <Statistic.Value>
             <Icon color="violet" name="clipboard outline" />
             {props.boards && props.boards.length}
           </Statistic.Value>
           <Statistic.Label>Boards</Statistic.Label>
         </Statistic>
-        <Statistic>
+        <Statistic className="Stat">
           <Statistic.Value>
             <Icon color="violet" name="sticky note outline" />
             {countOfNotes()}
           </Statistic.Value>
           <Statistic.Label>Notes</Statistic.Label>
         </Statistic>
-        <Statistic>
+        <Statistic className="Stat">
           <Statistic.Value>
             {countOfdoneTasks()}
           </Statistic.Value>
           <Statistic.Label>Tasks Done</Statistic.Label>
         </Statistic>
-        <Statistic>
+        <Statistic className="Stat">
           <Statistic.Value>
             {countOfNotes()-countOfdoneTasks()}
           </Statistic.Value>
           <Statistic.Label>Tasks Pending</Statistic.Label>
         </Statistic>
       </Statistic.Group>
-    </div>
   );
-};
+}
 
 export default Statistics;
