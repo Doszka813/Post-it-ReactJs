@@ -1,3 +1,7 @@
 .Note {
   word-break: break-all;
 }
+
+.tintRight {
+  float: right
+}

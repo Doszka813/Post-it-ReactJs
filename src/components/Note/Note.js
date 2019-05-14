@@ -104,9 +104,17 @@ class Note extends Component {
         </Card.Content>
         <Card.Content extra>
           <Popup
-            trigger={<Icon name="tint" size="large" color={this.state.color} />}
+            trigger={
+              <Button
+                circular
+                icon="tint"
+                size="tiny"
+                className="tintRight"
+                color={this.state.color}
+              />
+            }
             on="click"
-            position="right center"
+            position="top"
           >
             <Segment>
               <Icon
@@ -147,7 +155,7 @@ class Note extends Component {
             </Segment>
           </Popup>
         </Card.Content>
-
+        <br />
         <Button animated onClick={this.deleteNote}>
           <Button.Content visible>
             <Icon
