@@ -11,6 +11,7 @@ import {
   Button,
   Icon,
   Divider,
+  Segment
 } from "semantic-ui-react";
 import { updateBoardNotes } from "../../actions/board-actions";
 import "../../styles/Note.css";
@@ -19,7 +20,8 @@ class Note extends Component {
   constructor(props) {
     super();
     this.state = {
-      done: true
+      done: true,
+      color: "blue"
     };
   }
   deleteNote = () => this.props.onDeleteNote(this.props.id);
@@ -46,7 +48,10 @@ class Note extends Component {
     const { note } = this.props;
 
     return (
-      <Card className="Note" color={ this.state.done ? "blue" : "grey"}>
+      <Card
+        className="Note"
+        color={this.state.done ? this.state.color : "grey"}
+      >
         {note.done ? (
           <Popup
             trigger={
@@ -97,9 +102,58 @@ class Note extends Component {
           <Divider />
           <Card.Description>{note.text}</Card.Description>
         </Card.Content>
+        <Card.Content extra>
+          <Popup
+            trigger={<Icon name="tint" size="large" color={this.state.color} />}
+            on="click"
+            position="right center"
+          >
+            <Segment>
+              <Icon
+                onClick={e => this.setState({ color: e.target.id })}
+                color="blue"
+                size="big"
+                name="tint"
+                id="blue"
+              />
+              <Icon
+                onClick={e => this.setState({ color: e.target.id })}
+                color="purple"
+                size="big"
+                name="tint"
+                id="purple"
+              />
+              <Icon
+                onClick={e => this.setState({ color: e.target.id })}
+                color="green"
+                size="big"
+                name="tint"
+                id="green"
+              />
+              <Icon
+                onClick={e => this.setState({ color: e.target.id })}
+                color="pink"
+                size="big"
+                name="tint"
+                id="pink"
+              />
+              <Icon
+                onClick={e => this.setState({ color: e.target.id })}
+                color="yellow"
+                size="big"
+                name="tint"
+                id="yellow"
+              />
+            </Segment>
+          </Popup>
+        </Card.Content>
+
         <Button animated onClick={this.deleteNote}>
           <Button.Content visible>
-            <Icon name="trash" color={ this.state.done ? "blue" : "grey"} />
+            <Icon
+              name="trash"
+              color={this.state.done ? this.state.color : "grey"}
+            />
           </Button.Content>
           <Button.Content hidden>Remove</Button.Content>
         </Button>

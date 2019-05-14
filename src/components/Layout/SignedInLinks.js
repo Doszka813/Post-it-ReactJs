@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../actions/auth-actions";
-import { Responsive, Label, Menu, Button, Divider } from "semantic-ui-react";
+import { Responsive, Label, Menu, Button } from "semantic-ui-react";
 import LogoutButton from "./LogoutButton";
 
 const SignedInLinks = props => {

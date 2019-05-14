@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Icon, Menu, Sidebar } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "../../styles/Navigation.css";
-import LogoutButton from "./LogoutButton";
 
 export default class MobileMenu extends Component {
   state = { visible: false };

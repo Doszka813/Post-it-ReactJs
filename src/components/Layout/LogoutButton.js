@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Icon, Button, Responsive } from "semantic-ui-react";
+import { Button, Responsive } from "semantic-ui-react";
 import "../../styles/Navigation.css";
 
 const LogoutButton = props => {
