@@ -12,7 +12,8 @@ class NoteCreator extends Component {
       title: "",
       text: "",
       createdAt: new Date(),
-      done: false
+      done: false,
+      color: 'blue'
     };
   }
 

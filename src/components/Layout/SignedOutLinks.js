@@ -8,7 +8,7 @@ const SignedInLinks = () => {
   return (
     <Menu.Item position="right">
       <NavLink to="/signin">
-        <Button size="small" color="green" inverted>
+        <Button size="tiny" color="green" inverted>
           <Icon name="user outline" />
           Log in
         </Button>

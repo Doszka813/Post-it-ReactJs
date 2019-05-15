@@ -19,25 +19,29 @@ import "../../styles/Note.css";
 class Note extends Component {
   constructor(props) {
     super();
-    this.state = {
-      done: true,
-      color: "blue"
-    };
+    this.state = {};
   }
   deleteNote = () => this.props.onDeleteNote(this.props.id);
 
   toggleDone = () => {
-    this.setState({ done: !this.state.done });
-    console.log(this.state.done);
-    this.tgl();
+    const newBoard = { ...this.props.board };
+    const notes = this.props.board.notes.slice();
+    let isDone = !notes[this.props.noteId].done;
+    const note = {
+      ...notes[this.props.noteId],
+      done: isDone
+    };
+    notes[this.props.noteId] = note;
+    newBoard.notes = notes;
+    this.props.updateBoardNotes(newBoard.notes, this.props.boardId);
   };
 
-  tgl = () => {
+  changeColor = e => {
     const newBoard = { ...this.props.board };
     const notes = this.props.board.notes.slice();
     const note = {
       ...notes[this.props.noteId],
-      done: this.state.done
+      color: e.target.id
     };
     notes[this.props.noteId] = note;
     newBoard.notes = notes;
@@ -48,10 +52,7 @@ class Note extends Component {
     const { note } = this.props;
 
     return (
-      <Card
-        className="Note"
-        color={this.state.done ? this.state.color : "grey"}
-      >
+      <Card className="Note" color={!note.done ? note.color : "grey"}>
         {note.done ? (
           <Popup
             trigger={
@@ -110,7 +111,7 @@ class Note extends Component {
                 icon="tint"
                 size="tiny"
                 className="tintRight"
-                color={this.state.color}
+                color={!note.done ? note.color : "grey"}
               />
             }
             on="click"
@@ -118,35 +119,35 @@ class Note extends Component {
           >
             <Segment>
               <Icon
-                onClick={e => this.setState({ color: e.target.id })}
+                onClick={this.changeColor}
                 color="blue"
                 size="big"
                 name="tint"
                 id="blue"
               />
               <Icon
-                onClick={e => this.setState({ color: e.target.id })}
+                onClick={this.changeColor}
                 color="purple"
                 size="big"
                 name="tint"
                 id="purple"
               />
               <Icon
-                onClick={e => this.setState({ color: e.target.id })}
+                onClick={this.changeColor}
                 color="green"
                 size="big"
                 name="tint"
                 id="green"
               />
               <Icon
-                onClick={e => this.setState({ color: e.target.id })}
+                onClick={this.changeColor}
                 color="pink"
                 size="big"
                 name="tint"
                 id="pink"
               />
               <Icon
-                onClick={e => this.setState({ color: e.target.id })}
+                onClick={this.changeColor}
                 color="yellow"
                 size="big"
                 name="tint"
@@ -158,10 +159,7 @@ class Note extends Component {
         <br />
         <Button animated onClick={this.deleteNote}>
           <Button.Content visible>
-            <Icon
-              name="trash"
-              color={this.state.done ? this.state.color : "grey"}
-            />
+            <Icon name="trash" color={!note.done ? note.color : "grey"} />
           </Button.Content>
           <Button.Content hidden>Remove</Button.Content>
         </Button>
