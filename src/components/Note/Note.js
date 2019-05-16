@@ -79,7 +79,7 @@ class Note extends Component {
                 fluid
                 label={{
                   as: "a",
-                  color: "green",
+                  color: `${note.color}`,
                   corner: "right",
                   icon: "check",
                   size: "small"
@@ -115,7 +115,7 @@ class Note extends Component {
               />
             }
             on="click"
-            position="top"
+            position="top right"
           >
             <Segment>
               <Icon

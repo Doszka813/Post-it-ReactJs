@@ -19,9 +19,9 @@ const LogoutButton = props => {
         <Button
           onClick={props.signOut}
           size="huge"
-          color="green"
-          inverted
           icon="power off"
+          inverted
+          color="green"
         />
       </Responsive>
     </div>

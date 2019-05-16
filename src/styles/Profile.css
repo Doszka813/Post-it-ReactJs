@@ -1,7 +1,7 @@
 .ProfileInfo {
   background-color: #ffffff71;
   width: 90%;
-  height: 80vh;
+  min-height: 80vh;
   margin: 0rem auto;
   padding: 2rem;
   border-radius: 0.5rem;

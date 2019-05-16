@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { signOut } from "../../actions/auth-actions";
 import { Responsive, Label, Menu, Button } from "semantic-ui-react";
 import LogoutButton from "./LogoutButton";
+import ProfileButton from "./ProfileButton";
 
 const SignedInLinks = props => {
   const { profile } = props;
@@ -17,17 +18,7 @@ const SignedInLinks = props => {
       <Responsive minWidth={769}>
         <Menu.Item>
           <Button.Group>
-            <Button>
-              <NavLink to="/profile">
-                <Label as="a" image size="large">
-                  <img
-                    alt="profile_picture"
-                    src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg"
-                  />
-                  {profile.initials}
-                </Label>
-              </NavLink>
-            </Button>
+              <ProfileButton profile={profile} />
             <LogoutButton signOut={onSignOut} />
           </Button.Group>
         </Menu.Item>
@@ -35,7 +26,7 @@ const SignedInLinks = props => {
       <Responsive maxWidth={768}>
         <Menu.Item>
           <NavLink to="/profile">
-            <Label as="a" image>
+            <Label image>
               <img
                 alt="profile_picture"
                 src="https://react.semantic-ui.com/images/avatar/small/stevie.jpg"

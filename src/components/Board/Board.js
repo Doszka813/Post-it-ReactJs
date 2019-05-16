@@ -9,6 +9,8 @@ import { Card, Header, Divider } from "semantic-ui-react";
 import "../../styles/Board.css";
 
 const Board = props => {
+  
+  let flteredNotes = props.board.notes;
   const addNote = note => {
     const newBoard = { ...props.board };
     newBoard.notes = [...newBoard.notes, note];
@@ -27,6 +29,11 @@ const Board = props => {
     props.updateBoardNotes(notes, props.id);
   };
 
+  const deleteAllDoneNotes = () => {
+    const onlyDoneNotes = props.board.notes.slice().filter(note => note.done ===false);
+    props.updateBoardNotes(onlyDoneNotes, props.id);
+  };
+
   const onDeleteBoard = () => {
     const id = props.id;
     props.deleteBoard(id);
@@ -43,6 +50,7 @@ const Board = props => {
         onDeleteBoard={onDeleteBoard}
         deleteAllNotes={deleteAllNotes}
         addNote={addNote}
+        deleteAllDoneNotes={deleteAllDoneNotes}
       />
       {props.board.notes.length < 1 ? (
         <div className="NotesList">
@@ -51,8 +59,8 @@ const Board = props => {
       ) : (
         <div className="NotesList">
           <Card.Group>
-            {props.board &&
-              props.board.notes.map((note, ind) => {
+            {flteredNotes &&
+              flteredNotes.map((note, ind) => {
                 return (
                   <Note
                     {...note}

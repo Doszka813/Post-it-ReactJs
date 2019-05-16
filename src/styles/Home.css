@@ -1,5 +1,5 @@
 .Home {
-  height: 100vh;
+  min-height: 80vh;
   width: 80%;
   margin: 0 auto;
   font-size: 1rem;

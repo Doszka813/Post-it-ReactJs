@@ -23,7 +23,7 @@ const BoardContainer = props => {
   return (
     <div className="BoardsContainer">
       {props.boards && props.boards.length < 1 ? (
-        <h2>No boards to show. Please create board to continue fun!</h2>
+        <h4>No boards to show. Please create board to continue fun!</h4>
       ) : (
         <div>
           <Tab

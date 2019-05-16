@@ -40,21 +40,43 @@ export default class SidebarExampleSidebar extends Component {
           visible={this.state.barVisible}
         >
           <Menu.Item as="a">
-            <Button size="small" primary onClick={this.props.onDeleteBoard}>
+            <Button
+              fluid
+              size="small"
+              primary
+              onClick={this.props.onDeleteBoard}
+            >
               <Icon name="remove circle" />
               Delete board
             </Button>
           </Menu.Item>
           <Menu.Item as="a">
-            <Button size="small" primary onClick={this.props.deleteAllNotes}>
+            <Button
+              fluid
+              size="small"
+              primary
+              onClick={this.props.deleteAllNotes}
+            >
               <Icon name="delete" />
               Remove notes
+            </Button>
+          </Menu.Item>
+          <Menu.Item as="a">
+            <Button
+              fluid
+              size="small"
+              primary
+              onClick={this.props.deleteAllDoneNotes}
+            >
+              <Icon name="delete" />
+              Remove done notes
             </Button>
           </Menu.Item>
           <Menu.Item>
             <Modal
               trigger={
                 <Button
+                  fluid
                   size="small"
                   primary
                   onClick={this.handleModalShowClick}
